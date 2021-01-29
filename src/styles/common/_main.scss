@@ -1,0 +1,739 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    background: white;
+}
+
+.container{
+    max-width: 1440px;
+    padding: 0px 72px 0px 72px;
+    margin: 0 auto;
+}
+.nav-container{
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    text-decoration: none;
+    color: $black;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.start-btn {
+    margin-top: 40px;
+    height: 46px;
+    width: 161px;
+    color: $pink;
+    background-color: transparent;
+    border: 2px solid $pink;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    &--nav {
+        margin-left: 24px;
+        margin-top: 0;
+        @media only screen and (min-width: 769px) {
+            display: none;
+        }
+    }
+    &--coach {
+        margin-top: 50%;
+    }
+}
+.start-btn:hover {
+    background-color: $pink;
+    color: $white;
+    transition: 0.5s;
+}
+
+
+.nav {
+    position: relative;
+    z-index: 5;
+
+    .nav-menu-holder {
+        display: flex;
+
+        .nav-menu-title {
+            display: none;
+        }
+
+        .nav-menu-list {
+            display: flex;
+            align-items: center;
+
+            &__item {
+                margin-left: 24px;
+
+                a {
+                    display: inline-block;
+                    font-weight: 500;
+                    font-size: 14px;
+                    outline: none;
+                    text-decoration: none;
+                    color: $black;
+                }
+
+                a:after {
+                    display: block;
+                    content: "";
+                    width: 0;
+                    height: 2px;
+                    background-color: $black;
+                    transition: width 0.3s ease-out;
+                }
+
+                a:hover:after {
+                    width: 100%;
+                }
+            }
+
+        }
+
+        .nav-menu-btn {
+            margin-left: 24px;
+            height: 36px;
+            width: 116px;
+            border: 2px solid $black;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: 0.5s;
+        }
+        .nav-menu-btn:hover{
+            background-color: $black;
+            color: $white;
+        }
+    }
+}
+
+.burger-opener {
+    display: none;
+    height: 14px;
+    width: 32px;
+    position: relative;
+
+    .burger-opener-stick {
+        height: 2px;
+        width: 32px;
+        position: absolute;
+        top:50%;
+        border-radius: 4px;
+        background-color: $black;
+        z-index:6;
+        transition: all 0.3s;
+    }
+    .burger-opener-stick:first-child {
+        top: 0;
+    }
+    .burger-opener-stick:last-child {
+        top: 100%;
+    }
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+.burger-opener.active .middle-stick {
+    display: none;
+}
+
+.burger-opener.active .burger-opener-stick:first-child {
+    transform: rotate(45deg) translateX(10px);
+}
+
+.burger-opener.active .burger-opener-stick:last-child {
+    transform: rotate(-45deg) translateX(10px);
+}
+
+.section-gap {
+    margin-bottom: $sectionGapDesktop;
+}
+
+.section-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 93.9%;
+    margin-bottom: 24px;
+}
+
+.section-description {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 153.4%;
+    max-width: 668px;
+}
+
+.promo-box {
+    padding-top: 72px;
+}
+.promo-box-content-holder {
+    display: flex;
+    position: relative;
+
+    .promo-box-content {
+        padding: 73px 77px 73px 0;
+        width: 35%;
+
+        .promo-box-content-title {
+            font-weight: 700;
+            font-size: 72px;
+            margin-bottom: 16px;
+        }
+        .promo-box-content-city {
+            font-weight: 500;
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+        .promo-box-content-text{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 23px;
+        }
+
+        .promo-box-start-btn {
+            margin-top: 24px;
+        }
+    }
+
+    .promo-box-banner-holder {
+        width: 65%;
+        .promo-box-banner {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.services {
+    .services-cards-holder {
+        min-width: 0;
+        margin-top: 48px;
+        display: flex;
+        justify-content: space-between;
+
+        .card {
+            min-width: 0;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-sizing: border-box;
+            box-shadow: 0px 4px 30px rgba(207, 207, 207, 0.25);
+            border-radius: 2px;
+            margin-right: 16px;
+
+            .card-image-holder {
+                width: 100%;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+            .card-content-holder {
+                padding: 40px 15px 27px 40px;
+
+                .card-title {
+                    font-weight: 700;
+                    font-size: 24px;
+                    margin-bottom: 24px;
+                }
+                .card-list {
+                    .card-list__item {
+                        margin-bottom: 10px;
+                        font-weight: normal;
+                        font-size: 16px;
+                        line-height: 153.4%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.offer {
+    .offer-card-holder {
+        display: flex;
+        flex-wrap: wrap;
+
+        .offer-card {
+            display: flex;
+            flex-direction: column;
+            margin: 51px 10px 0;
+            width: calc(25% - 30px);
+            align-items: center;
+            text-align: center;
+
+            .icon {
+                margin-bottom: 14px;
+                width: 92px;
+                height: 70px;
+            }
+
+            .icon-people {
+                background: url("src/assets/sprite/sprite.svg#people") center / contain no-repeat;
+            }
+
+            .icon-door {
+                background: url("src/assets/sprite/sprite.svg#door") center / contain no-repeat;
+            }
+
+            .icon-coffee {
+                background: url("src/assets/sprite/sprite.svg#coffee") center / contain no-repeat;
+            }
+
+            .icon-waist {
+                background: url("src/assets/sprite/sprite.svg#waist") center / contain no-repeat;
+            }
+
+            .icon-star {
+                background: url("src/assets/sprite/sprite.svg#star") center / contain no-repeat;
+            }
+
+            .icon-faces {
+                background: url("src/assets/sprite/sprite.svg#faces") center / contain no-repeat;
+            }
+
+            .icon-envelope {
+                background: url("src/assets/sprite/sprite.svg#envelope") center / contain no-repeat;
+            }
+
+            .icon-smile {
+                background: url("src/assets/sprite/sprite.svg#smiles") center / contain no-repeat;
+            }
+
+            .offer-card-title {
+                max-width: 194px;
+                font-weight: 400;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.coaches {
+
+    .coaches-cards-holder {
+        position: relative;
+        margin-top: 48px;
+    }
+
+    .slick-arrow {
+        font-size: 0;
+        display: block;
+        width: 40px;
+        height: 25px;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        bottom: -38px;
+        left: 50%;
+    }
+
+    .slick-next {
+        background: url("src/assets/sprite/sprite.svg#right-arrow") center / contain no-repeat;
+        transform: translateX(50px);
+    }
+
+    .slick-prev {
+        background: url("src/assets/sprite/sprite.svg#left-arrow") center / contain no-repeat;
+        transform: translateX(-50px);
+    }
+
+    .coaches-card {
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-sizing: border-box;
+        box-shadow: 0 4px 30px rgba(207, 207, 207, 0.25);
+        border-radius: 2px;
+        margin: 0 8px;
+        display: flex !important;
+
+        .coaches-card-image-holder {
+             .coaches-card-image {
+                 display: block;
+                width: 100%;
+                 height: 100%;
+                 object-fit: cover;
+
+            }
+        }
+        .coaches-card-content-holder {
+            padding: 43px 0px;
+            margin-left: 24px;
+
+            .coach-mobile-button {
+                display: none;
+            }
+        }
+        .coaches-card-number-holder {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .coach-name-holder {
+            font-weight: 700;
+            font-size: 24px;
+            margin: 8px 0;
+        }
+        .coach-occupation-holder {
+            font-weight: 400;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .coach-description-list {
+            .coach-description-list-item {
+                margin-bottom: 16px;
+
+                .coach-description-list-item-gray {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background: $dark;
+    .flex-container {
+        min-height: 88px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .footer-logo {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            color: $white;
+        }
+
+        .copyright {
+            font-size: 16px;
+            line-height: 24px;
+            color: $white;
+        }
+    }
+
+}
+
+
+//============1200px==============//
+
+@media screen and (max-width: 1200px) {
+    .promo-box-content-holder {
+        .promo-box-content {
+            .promo-box-content-title {
+                font-size: 60px;
+            }
+        }
+    }
+}
+
+
+//==============1024px==============//
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 36px;
+    }
+
+    .promo-box-content-holder {
+        .promo-box-content {
+            .promo-box-content-title {
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+//================992px=============//
+
+@media screen and (max-width: 992px) {
+    .nav .nav-menu-holder .nav-menu-list__item, .nav .nav-menu-holder .nav-menu-btn {
+        margin-left: 7px;
+    }
+
+    .offer .offer-card-holder .offer-card {
+        width: calc(33.333% - 30px);
+    }
+}
+
+//=================768px=============//
+
+@media screen and (max-width: 768px){
+
+    .section-gap {
+        margin-bottom: $sectionGapMobile;
+    }
+
+    .section-title {
+        margin-bottom: 12px;
+        font-size: 24px;
+    }
+
+    .section-description {
+        font-size: 13px;
+        line-height: 19px;
+    }
+    .container {
+        padding: 0 16px;
+    }
+
+    .burger-opener {
+        display: block;
+    }
+
+    .nav {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        background-color: white;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        flex-direction: column;
+        background-image: url('src/assets/img/burger-menu-bg.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-x: right;
+        transition:0.3s ease-out;
+        border-bottom: 4px solid #FF699F;
+
+
+        .nav-menu-holder {
+            flex-direction: column;
+            padding-top: 40px;
+
+            .nav-menu-title {
+                margin: 0 0 48px 24px;
+                font-weight: 700;
+                font-size: 36px;
+                display: block;
+            }
+
+            .nav-menu-list {
+                display: block;
+
+                &__item {
+                    margin-left: 24px;
+                    margin-bottom: 40px;
+
+                    a {
+                        font-weight: 700;
+                        font-size: 24px;
+                    }
+                }
+                &__item:last-child {
+                    margin-bottom: 56px;
+                }
+
+            }
+
+            .nav-menu-btn {
+                display: none;
+            }
+        }
+    }
+
+    .nav.active {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+
+    .promo-box-content-holder {
+        flex-direction: column-reverse;
+        margin: 0 -16px;
+
+        .promo-box-content {
+            padding: 32px 16px 0;
+            width: 100%;
+
+            .promo-box-content-title {
+                font-size: 36px;
+                margin-bottom: 11px;
+            }
+            .promo-box-content-city {
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 18px;
+            }
+            .promo-box-content-text{
+                font-size: 14px;
+            }
+        }
+
+        .promo-box-banner-holder {
+            width: 100%;
+        }
+    }
+
+    .services {
+        .services-cards-holder {
+
+            .card {
+
+                .card-content-holder {
+                    min-height: 166px;
+                    padding: 24px 15px 15px 16px;
+
+                    .card-title {
+                        font-weight: 700;
+                        font-size: 18px;
+                        margin-bottom: 16px;
+                    }
+                    .card-list {
+                        .card-list__item {
+                            margin-bottom: 8px;
+                            font-size: 13px;
+                            line-height: 19px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .services-cards-holder.slick-slider {
+            display: block;
+        }
+
+
+        .services-cards-holder .slick-dots {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .services-cards-holder .slick-dots li{
+            list-style: none;
+            margin: 0 4px;
+            padding: 0;
+
+        }
+        .services-cards-holder .slick-dots li.slick-active button{
+            background-color: $pink;
+        }
+        .services-cards-holder .slick-dots button{
+            font-size: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: $white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 0;
+        }
+        .services-cards-holder .slick-track{
+            padding: 0 16px;
+        }
+    }
+
+    .offer .offer-card-holder .offer-card {
+        width: calc(50% - 30px);
+
+        .offer-card-title {
+            font-size: 13px;
+            line-height: 19px;
+            text-align: center;
+        }
+    }
+
+    .coaches {
+        .coaches-card {
+            display: block !important;
+
+            .coaches-card-content-holder {
+                padding-right: 10px;
+                padding-bottom: 16px;
+                .start-btn--coach {
+                    display: none;
+                }
+
+                .coaches-card-number-holder {
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+
+                .coach-name-holder {
+                    font-size: 18px;
+                    margin-top: 9px;
+                }
+
+                .coach-occupation-holder {
+                    font-size: 13px;
+                    line-height: 19px;
+                }
+
+                .coach-description-list {
+                    .coach-description-list-item {
+                        margin-bottom: 8px;
+                        font-size: 13px;
+                        line-height: 19px;
+
+                        .coach-description-list-item-gray {
+                            display: block;
+                        }
+                    }
+                }
+
+                .coach-mobile-button {
+                    display: block;
+                    height: 33px;
+                    width: 33px;
+                    border-radius: 50%;
+                    border: 2px solid $pink;
+                    background: transparent;
+                    background-image: url("src/assets/sprite/sprite.svg#arrow-point-to-right");
+                    background-size: 50%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    margin-left: auto;
+                }
+            }
+
+        }
+
+        .coaches-cards-holder .slick-dots {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .coaches-cards-holder .slick-dots li{
+            list-style: none;
+            margin: 0 4px;
+        }
+        .coaches-cards-holder .slick-dots li.slick-active button{
+            background-color: $pink;
+        }
+        .coaches-cards-holder .slick-dots button{
+            font-size: 0;
+            width: 6px;
+            height: 6px;
+            padding: 0;
+            border-radius: 50%;
+            background-color: $white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .footer .flex-container {
+        min-height: 55px;
+    }
+}
