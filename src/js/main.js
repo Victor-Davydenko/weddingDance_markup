@@ -1,7 +1,7 @@
 const burgerOpener = document.querySelector('.burger-opener');
 const burgerMenu = document.querySelector('.nav');
 const linksArr = document.querySelectorAll('.nav-menu-list__item a')
-console.log(linksArr);
+
 
 const toggleMenu = () => {
     if(burgerOpener.classList.contains('active')){
