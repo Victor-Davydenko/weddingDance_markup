@@ -1,5 +1,7 @@
 const burgerOpener = document.querySelector('.burger-opener');
 const burgerMenu = document.querySelector('.nav');
+const linksArr = document.querySelectorAll('.nav-menu-list__item a')
+console.log(linksArr);
 
 const toggleMenu = () => {
     if(burgerOpener.classList.contains('active')){
@@ -12,8 +14,16 @@ const toggleMenu = () => {
     }
 }
 
-burgerOpener.onclick = ()=>toggleMenu()
+burgerOpener.onclick = ()=>toggleMenu();
 
+linksArr.forEach((el)=> {
+    el.onclick = ()=>{
+        if(burgerOpener.classList.contains('active')){
+            burgerOpener.classList.remove('active');
+            burgerMenu.classList.remove('active');
+        }
+    }
+})
 
 $(window).on('load resize orientationchange', function() {
     $('.services-cards-holder').each(function(){
